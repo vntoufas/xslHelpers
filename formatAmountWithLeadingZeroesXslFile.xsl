@@ -20,7 +20,7 @@ exclude-result-prefixes="xs fn">
 
 
 
-<xsl:template match="fieldToSubstring3">
+<xsl:template match="fieldToSubstring3"> <!-- This if the actual field your xml should include -->
   <dotAdded_FieldToSubstring3>
     <xsl:value-of select="substring($withoutLeadingZeros, 0, $stringLength - 1 )"/>
     <xsl:text>.</xsl:text>
@@ -28,7 +28,7 @@ exclude-result-prefixes="xs fn">
   </dotAdded_FieldToSubstring3>
 </xsl:template>
 
-
+<!-- in case of a string you need to remove leading zeroes effectively, not risking conversion with number() -->
 <xsl:template name="remove-leading-zeros">
     <xsl:param name="text"/>
         <xsl:choose>
